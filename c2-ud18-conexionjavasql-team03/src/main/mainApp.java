@@ -31,7 +31,6 @@ public class mainApp {
 	utils.mostrarPrograma("UNIDAD 18 : CONEXION JAVA_SQL");
 
 	imprimeMenuPrincipal();
-
 	}
 
 	// Imprimir Menu
