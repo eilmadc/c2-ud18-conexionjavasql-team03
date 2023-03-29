@@ -110,9 +110,6 @@ public class Database {
 
 	public void deleteDatabase(String db, String table, String ID, Connection conexion) {
 		try {
-			String queryDB = "USE " + db + ";";
-			Statement stdb = conexion.createStatement();
-			stdb.executeUpdate(queryDB);
 
 			String query = "DELETE FROM " + table + " WHERE ID = \"" + ID + "\"";
 			Statement delTable = conexion.createStatement();
@@ -120,6 +117,16 @@ public class Database {
 
 		} catch (SQLException e) {
 			System.out.println("Values not deleted correctly");
+		}
+	}
+
+	public void dropDatabase(String db, Connection conexion) {
+		try {
+			String queryDB = "DROP DATABASE IF EXISTS " + db;
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+		} catch (SQLException ex) {
+			System.out.println("Drop incomplete");
 		}
 	}
 }
