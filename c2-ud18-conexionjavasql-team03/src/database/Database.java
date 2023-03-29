@@ -38,7 +38,6 @@ public class Database {
 			// closeConnection(conexion);
 			openConnection(conexion);
 			// openConnection("root", "", nom);
-			System.out.println(2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error abriendo la conexion " + e);
