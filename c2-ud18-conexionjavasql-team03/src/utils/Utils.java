@@ -41,7 +41,7 @@ public class Utils {
 		try {
 			num = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.QUESTION_MESSAGE));
 		} catch (Exception e) {
-			System.out.println("No has introducido valor");
+			System.out.println("Hasta Pronto");
 			System.exit(0);
 		} finally {
 			return num;
