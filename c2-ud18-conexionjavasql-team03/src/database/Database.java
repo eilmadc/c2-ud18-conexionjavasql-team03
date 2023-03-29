@@ -10,7 +10,7 @@ import com.mysql.cj.MysqlConnection;
 import com.mysql.cj.x.protobuf.MysqlxNotice.Warning.Level;
 
 public class Database {
-
+//-----------------------------------------------------------------
 	public Connection openConnection(Connection conexion) {
 		//Connection conexion = null;
 		conexion = null;
@@ -29,6 +29,7 @@ public class Database {
 		return conexion;
 	}
 
+	//-----------------------------------------------------------------
 	public void createDatabase(String nom, Connection conexion) {
 
 		try {
@@ -44,6 +45,7 @@ public class Database {
 		}
 	}
 
+	//-----------------------------------------------------------------
 	public void closeConnection(Connection conexion) {
 		// TODO Auto-generated method stub
 		try {
@@ -54,6 +56,7 @@ public class Database {
 		}
 	}
 
+	//-----------------------------------------------------------------
 	public void createTable(String db, String table, String atributos, Connection conexion) {
 		try {
 			// USE database
@@ -72,6 +75,7 @@ public class Database {
 		}
 	}
 
+	//-----------------------------------------------------------------
 	public void insertData(String db, String table, String atributos, Connection conexion) {
 		try {
 			// USE database
@@ -90,6 +94,7 @@ public class Database {
 		}
 	}
 
+	//-----------------------------------------------------------------
 	public java.sql.ResultSet getValues(String db, String table, Connection conexion) {
 		java.sql.ResultSet resultSet = null;
 		try {
@@ -97,10 +102,9 @@ public class Database {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDB);
 
-			String querySelect = "SELECT *FROM " + table;
+			String querySelect = "SELECT * FROM " + table + ";";
 			Statement stsel = conexion.createStatement();
 
-			stsel.executeUpdate(querySelect);
 			resultSet = stsel.executeQuery(querySelect);
 
 		} catch (SQLException e) {
@@ -109,12 +113,13 @@ public class Database {
 		return resultSet;
 	}
 
-	public void deleteDatabase(String db, String table, String ID, Connection conexion) {
+	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {
 
-			String query = "DELETE FROM " + table + " WHERE ID = \"" + ID + "\"";
+			String query = "DELETE FROM " + table + " WHERE " + ID + " = " + IDValor;
 			Statement delTable = conexion.createStatement();
 			delTable.executeUpdate(query);
+			System.out.println(2);
 
 		} catch (SQLException e) {
 			System.out.println("Values not deleted correctly");
