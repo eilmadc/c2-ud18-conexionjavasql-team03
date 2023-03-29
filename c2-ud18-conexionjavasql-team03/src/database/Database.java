@@ -11,8 +11,9 @@ import com.mysql.cj.x.protobuf.MysqlxNotice.Warning.Level;
 
 public class Database {
 
-	public Connection openConnection() {
-		Connection conexion = null;
+	public Connection openConnection(Connection conexion) {
+		//Connection conexion = null;
+		conexion = null;
 		try {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -22,7 +23,7 @@ public class Database {
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(123321);
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 		return conexion;
@@ -35,11 +36,12 @@ public class Database {
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
 			// closeConnection(conexion);
-			// openConnection();
+			openConnection(conexion);
 			// openConnection("root", "", nom);
+			System.out.println(2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error abriendo la conexion");
+			System.out.println("Error abriendo la conexion " + e);
 		}
 	}
 
@@ -125,8 +127,10 @@ public class Database {
 			String queryDB = "DROP DATABASE IF EXISTS " + db;
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDB);
+			
 		} catch (SQLException ex) {
 			System.out.println("Drop incomplete");
 		}
+
 	}
 }
