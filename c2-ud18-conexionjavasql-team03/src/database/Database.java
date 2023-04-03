@@ -49,7 +49,7 @@ public class Database {
 			conexion.close();
 			System.out.println("Cerrada la conexion");
 		} catch (SQLException e) {
-			System.out.println("Error cerrando la conexion");
+			System.out.println("Error cerrando la conexion: "+ e);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class Database {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error creando la table");
+			System.out.println("Error creando la table: "+ e);
 		}
 	}
 
@@ -83,11 +83,11 @@ public class Database {
 			// CREATE TABLE
 			Statement st = conexion.createStatement();
 			st.executeUpdate("INSERT INTO " + table + " VALUE(" + atributos + ");");
-			System.out.println("data insertada");
+			System.out.println("data insertada: "+ atributos);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error insertando data");
+			System.out.println("Error insertando data: "+e);
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Database {
 			resultSet = stsel.executeQuery(querySelect);
 
 		} catch (SQLException e) {
-			System.out.println("Values no coleccionadas correctamente");
+			System.out.println("Values no coleccionadas correctamente:" +e);
 		}
 		return resultSet;
 	}
