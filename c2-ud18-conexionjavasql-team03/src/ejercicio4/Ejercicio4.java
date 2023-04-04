@@ -7,6 +7,7 @@ package ejercicio4;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import database.Database;
 import utils.ColorConsole;
@@ -70,7 +71,10 @@ public class Ejercicio4 {
 		
 		// --2. READ DATA: CREATE DATA:Recogemos el resultado
 		ResultSet rsPeliculas = db.getValues("ejercicio4", "peliculas", conexion);
-		ResultSet rsSalas = db.getValues("ejercicio4", "salas", conexion);
+		
+		//Hago consulta LEFT JOIN para obtener el nombre de la pelicula en cada sala.
+		String queryGetSalas = "select s.CODIGO, s.NOMBRE, p.NOMBRE as pNombre from salas s LEFT JOIN peliculas p on p.CODIGO=s.pelicula";
+		ResultSet rsSalas = getSalasJoinPeliculas("ejercicio4", "salas", queryGetSalas, conexion);
 
 		// --Imprimir el resultado de las consultas de lectura de la db.
 		try {
@@ -86,7 +90,7 @@ public class Ejercicio4 {
 			while (rsSalas.next()) {
 				System.out.println("\nCodigo: " + rsSalas.getInt("CODIGO"));
 				System.out.println("Nombre: " + rsSalas.getString("NOMBRE"));
-				System.out.println("Pelicula: " + rsSalas.getString("PELICULA"));
+				System.out.println("Pelicula: " + rsSalas.getString("pNombre"));
 			}
 			utils.imprimeLinea();
 		} catch (SQLException e) {
@@ -95,5 +99,24 @@ public class Ejercicio4 {
 
 		// --Cerrar conexion
 		db.closeConnection(conexion);
+	}
+	
+	//-----------------------------------------------------------------
+	public java.sql.ResultSet getSalasJoinPeliculas(String db, String table, String querySelect, Connection conexion) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			//String querySelect = "SELECT * FROM " + table + ";";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
 	}
 }
