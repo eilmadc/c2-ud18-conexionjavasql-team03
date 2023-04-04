@@ -40,7 +40,7 @@ public class Ejercicio7 {
 		String atributosAsignado = "CIENTIFICO varchar(8) NOT NULL, PROYECTO varchar(4) NOT NULL,"
 				+ " PRIMARY KEY(CIENTIFICO,PROYECTO), "
 				+ "FOREIGN KEY (CIENTIFICO) REFERENCES cientificos(DNI) ON DELETE CASCADE ON UPDATE CASCADE,"
-				+ " FOREIGN KEY (PROYECTO) REFERENCES proyecto(ID) ON DELETE CASCADE ON UPDATE CASCADE";
+				+ "FOREIGN KEY (PROYECTO) REFERENCES proyecto(ID) ON DELETE CASCADE ON UPDATE CASCADE";
 		
 		// --datos
 		String cientifico1 = ("'1111111A', 'Cientifico 1'");
@@ -53,7 +53,7 @@ public class Ejercicio7 {
 		String proyecto3 = ("'P003','Proyecto 003', '2200'");
 		String proyecto4 = ("'P004','Proyecto 004', '65200'");
 		String proyecto5 = ("'P005','Proyecto 005', '1200'");
-		String asignado1 = ("'1111111A','1'");
+		String asignado1 = ("'7777777A','1'");
 		String asignado2 = ("'2222222B','2'");
 		String asignado3 = ("'3333333C','3'");
 		String asignado4 = ("'4444444D','4'");
