@@ -12,7 +12,7 @@ import com.mysql.cj.x.protobuf.MysqlxNotice.Warning.Level;
 public class Database {
 //-----------------------------------------------------------------
 	public Connection openConnection(Connection conexion) {
-		//Connection conexion = null;
+		// Connection conexion = null;
 		conexion = null;
 		try {
 
@@ -23,13 +23,13 @@ public class Database {
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(123321);
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 
 		return conexion;
 	}
 
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 	public void createDatabase(String nom, Connection conexion) {
 
 		try {
@@ -45,7 +45,7 @@ public class Database {
 		}
 	}
 
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 	public void closeConnection(Connection conexion) {
 		// TODO Auto-generated method stub
 		try {
@@ -56,7 +56,7 @@ public class Database {
 		}
 	}
 
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 	public void createTable(String db, String table, String atributos, Connection conexion) {
 		try {
 			// USE database
@@ -75,7 +75,7 @@ public class Database {
 		}
 	}
 
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 	public void insertData(String db, String table, String atributos, Connection conexion) {
 		try {
 			// USE database
@@ -94,7 +94,7 @@ public class Database {
 		}
 	}
 
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 	public java.sql.ResultSet getValues(String db, String table, Connection conexion) {
 		java.sql.ResultSet resultSet = null;
 		try {
@@ -112,8 +112,8 @@ public class Database {
 		}
 		return resultSet;
 	}
-
-	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
+//---------------------------------------------------------------
+	public void deleteDatabase(String db, String table, String ID, String IDValor, Connection conexion) {
 		try {
 
 			String query = "DELETE FROM " + table + " WHERE " + ID + " = " + IDValor;
@@ -131,7 +131,7 @@ public class Database {
 			String queryDB = "DROP DATABASE IF EXISTS " + db;
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDB);
-			
+
 		} catch (SQLException ex) {
 			System.out.println("Drop incomplete");
 		}
