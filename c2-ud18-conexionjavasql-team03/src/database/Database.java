@@ -14,7 +14,7 @@ public class Database {
 		try {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.43:3306", "remote", "-Crocodile123");
+			conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.232:3306", "remote", "F3d0r@...");
 			System.out.println("Conectado a la base de datos");
 
 		} catch (SQLException | ClassNotFoundException e) {
@@ -64,7 +64,7 @@ public class Database {
 			// CREATE TABLE
 			Statement st = conexion.createStatement();
 			st.executeUpdate("CREATE TABLE " + table + "(" + atributos + ");");
-			System.out.println("Table creada");
+			System.out.println("Table creada: "+table);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
