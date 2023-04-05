@@ -9,6 +9,10 @@ import ejercicio2.Ejercicio2;
 import ejercicio3.Ejercicio3;
 import ejercicio4.Ejercicio4;
 import ejercicio5.Ejercicio5;
+import ejercicio6.Ejercicio6;
+import ejercicio7.Ejercicio7;
+import ejercicio8.Ejercicio8;
+import ejercicio9.Ejercicio9;
 import utils.ColorConsole;
 import utils.Utils;
 
@@ -89,6 +93,26 @@ public class mainApp {
 				// Ejercicio4
 				Ejercicio5 ejercicio5 = new Ejercicio5();
 				ejercicio5.eje5Inicia();
+				break;
+			case 6:
+				// Ejercicio1
+				Ejercicio6 ejercicio6 = new Ejercicio6();
+				ejercicio6.eje6Inicia();
+				break;
+			case 7:
+				// Ejercicio1
+				Ejercicio7 ejercicio7 = new Ejercicio7();
+				ejercicio7.eje7Inicia();
+				break;
+			case 8:
+				// Ejercicio1
+				Ejercicio8 ejercicio8 = new Ejercicio8();
+				ejercicio8.eje8Inicia();
+				break;
+			case 9:
+				// Ejercicio1
+				Ejercicio9 ejercicio9 = new Ejercicio9();
+				ejercicio9.eje9Inicia();
 				break;
 			default:
 				break;

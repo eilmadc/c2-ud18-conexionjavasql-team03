@@ -23,7 +23,9 @@ public class Ejercicio4 {
 		Utils utils = new utils.Utils();
 		ColorConsole cc = new utils.ColorConsole();
 		Connection conexion = null;
+
 		Database db = new Database();
+
 
 		utils.mostrarPrograma("UD18-Ejercicio 4: PELICULAS Y SALAS");
 
