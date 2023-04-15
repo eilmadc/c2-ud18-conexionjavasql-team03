@@ -105,7 +105,7 @@ public class mainApp {
 				ejercicio7.eje7Inicia();
 				break;
 			case 8:
-				// Ejercicio
+				// Ejercicio8
 				Ejercicio8 ejercicio8 = new Ejercicio8();
 				ejercicio8.eje8Inicia();
 				break;
